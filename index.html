@@ -17,13 +17,16 @@
             <a href="#maquinaria">Maquinaria</a>
             <a href="#servicios">Servicios</a>
             <a href="#contacto">Contacto</a>
-</nav>
-<div class="menu-toggle">☰</div> </header>
-
+        </nav>
+        <div class="menu-toggle">☰</div>
     </header>
 
     <main>
         <section id="inicio" class="full-screen active">
+            <div class="video-background">
+                <div class="video-overlay"></div>
+                <video src="tu-video.mp4" autoplay loop muted playsinline></video>
+            </div>
             <div class="content-wrapper">
                 <h1>Construyendo el Futuro. Hoy.</h1>
                 <p>Tu socio confiable en construcción de viviendas y renta de maquinaria pesada de alto rendimiento.</p>
@@ -33,11 +36,15 @@
 
         <section id="historia" class="full-screen hidden">
             <div class="content-wrapper">
-                <h2>Nuestra Historia</h2>
-                <p>Desde 2015, transformando visiones en estructuras sólidas. Más de 10 años de excelencia.</p>
-                <div class="stats">
-                    <span>+50 Proyectos</span>
-                    <span>+100 Clientes</span>
+                <h2>Nuestra Trayectoria en Imágenes</h2>
+                <p>Desde 2015, transformando visiones en estructuras sólidas. Cada imagen representa un hito en nuestro camino.</p>
+                <div class="photo-mosaic">
+                    <div class="mosaic-item"><img src="04.jpg" alt="Proyecto histórico 1"></div>
+                    <div class="mosaic-item"><img src="11.jpg" alt="Proyecto histórico 2"></div>
+                    <div class="mosaic-item"><img src="12.jpg" alt="Proyecto histórico 3"></div>
+                    <div class="mosaic-item"><img src="15.jpg" alt="Proyecto histórico 4"></div>
+                    <div class="mosaic-item"><img src="03.jpg" alt="Proyecto histórico 5"></div>
+                    <div class="mosaic-item"><img src="02.jpg" alt="Proyecto histórico 6"></div>
                 </div>
             </div>
         </section>
@@ -46,9 +53,35 @@
             <div class="content-wrapper">
                 <h2>Proyectos Terminados</h2>
                 <p>Calidad, diseño y funcionalidad en cada obra. Desde residenciales de lujo hasta desarrollos urbanos.</p>
-                <div class="gallery">
-                    <img src="imagen_proyecto1.jpeg" alt="Proyecto 1">
-                    <img src="imagen_proyecto1.jpeg" alt="Proyecto 2">
+                <div class="gallery-proyectos">
+                    <figure class="project-card">
+                        <img src="07.jpg" alt="Proyecto Residencial Moderno">
+                        <figcaption>
+                            <h3>Residencial "El Roble"</h3>
+                            <p>Ubicación: Zapopan, Jalisco. Año: 2024.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="project-card">
+                        <img src="04.jpg" alt="Proyecto Desarrollo Urbano">
+                        <figcaption>
+                            <h3>Parque Industrial Sur</h3>
+                            <p>Ubicación: Tlajomulco, Jalisco. Año: 2023.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="project-card">
+                        <img src="10.jpg" alt="Proyecto Comercial">
+                        <figcaption>
+                            <h3>Plaza "Los Cedros"</h3>
+                            <p>Ubicación: Guadalajara, Jalisco. Año: 2022.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="project-card">
+                        <img src="imagen_proyecto1.jpeg" alt="Proyecto de Infraestructura">
+                        <figcaption>
+                            <h3>Carretera Estatal 15</h3>
+                            <p>Ubicación: Tramo El Grullo. Año: 2021.</p>
+                        </figcaption>
+                    </figure>
                 </div>
             </div>
         </section>
@@ -56,43 +89,71 @@
         <section id="maquinaria" class="full-screen hidden">
             <div class="content-wrapper">
                 <h2>Maquinaria Disponible</h2>
-                <p>Equipos de última generación listos para tu obra: Excavadoras, Retroexcavadoras, Bulldozers y más.</p>
-                <ul class="machine-list">
-                    <li>Excavadora Caterpillar 320</li>
-                    <li>Retroexcavadora Caterpillar 416E con Martillo </li>
-                    <li>Bulldozer Caterpillar D6R Series II</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="servicios" class="full-screen hidden">
-            <div class="content-wrapper">
-                <h2>Servicios Integrales</h2>
-                <p>Ofrecemos construcción llave en mano, gestión de proyectos y asesoría especializada en ingeniería civil y proyectos arquitectonicos.</p>
-                <div class="service-cards">
-                    <span>Vivienda Residencial</span>
-                    <span>Infraestructura Vial</span>
-                    <span>Renta por Hora/Día</span>
+                <p>Equipos de última generación listos para tu obra. Selecciona los que necesites para tu cotización.</p>
+                <div class="machinery-grid">
+                    <div class="machinery-card">
+                        <img src="maquina-excavadora.jpg" alt="Excavadora Caterpillar 320">
+                        <div class="machinery-title">
+                            <h3>Excavadora Caterpillar 320</h3>
+                            <input type="checkbox" name="maquinaria[]" value="Excavadora Caterpillar 320">
+                        </div>
+                        <div class="machinery-info">
+                            <div class="info-polaroid"><strong>Peso:</strong> 22 Ton</div>
+                            <div class="info-polaroid"><strong>Caballaje:</strong> 162 HP</div>
+                            <div class="info-polaroid"><strong>Precio/Hora:</strong> $1,200 MXN</div>
+                            <div class="info-polaroid"><strong>Rendimiento:</strong> 110 m³/h</div>
+                        </div>
+                    </div>
+                    <div class="machinery-card">
+                        <img src="maquina-retroexcavadora.jpg" alt="Retroexcavadora Caterpillar 416E">
+                        <div class="machinery-title">
+                            <h3>Retroexcavadora 416E (Martillo)</h3>
+                            <input type="checkbox" name="maquinaria[]" value="Retroexcavadora 416E">
+                        </div>
+                        <div class="machinery-info">
+                            <div class="info-polaroid"><strong>Peso:</strong> 7 Ton</div>
+                            <div class="info-polaroid"><strong>Caballaje:</strong> 93 HP</div>
+                            <div class="info-polaroid"><strong>Precio/Hora:</strong> $950 MXN</div>
+                            <div class="info-polaroid"><strong>Rendimiento:</strong> 40 m³/h</div>
+                        </div>
+                    </div>
+                    <div class="machinery-card">
+                        <img src="maquina-bulldozer.jpg" alt="Bulldozer Caterpillar D6R">
+                        <div class="machinery-title">
+                            <h3>Bulldozer Caterpillar D6R</h3>
+                            <input type="checkbox" name="maquinaria[]" value="Bulldozer D6R">
+                        </div>
+                        <div class="machinery-info">
+                            <div class="info-polaroid"><strong>Peso:</strong> 21 Ton</div>
+                            <div class="info-polaroid"><strong>Caballaje:</strong> 200 HP</div>
+                            <div class="info-polaroid"><strong>Precio/Hora:</strong> $1,500 MXN</div>
+                            <div class="info-polaroid"><strong>Rendimiento:</strong> 150 m³/h</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
         
-        <section id="precios" class="full-screen hidden">
-            <div class="content-wrapper">
-                <h2>Planes y Precios</h2>
-                <p>Transparencia total. Solicita una cotización personalizada para tu proyecto o revisa nuestras tarifas estándar de renta.</p>
-                <a href="#" class="cta-button secondary">Solicitar Presupuesto</a>
-            </div>
+        <section id="servicios" class="full-screen hidden">
+             <div class="content-wrapper">
+                 <h2>Servicios Integrales</h2>
+                 <p>Ofrecemos construcción llave en mano, gestión de proyectos y asesoría especializada en ingeniería civil y proyectos arquitectonicos.</p>
+                 <div class="service-cards">
+                     <span>Vivienda Residencial</span>
+                     <span>Infraestructura Vial</span>
+                     <span>Renta por Hora/Día</span>
+                 </div>
+             </div>
         </section>
 
         <section id="contacto" class="full-screen hidden">
             <div class="content-wrapper">
                 <h2>Hablemos de tu Próximo Proyecto</h2>
                 <p>Llámanos, escríbenos o déjanos un mensaje. ¡Estamos listos para empezar!</p>
-                <form class="contact-form">
-                    <input type="text" placeholder="Tu Nombre">
-                    <input type="email" placeholder="Tu Email">
-                    <textarea placeholder="Tu Mensaje"></textarea>
+                <form class="contact-form" action="TU_URL_DE_FORMSPREE_AQUI" method="POST">
+                    <input type="text" name="nombre" placeholder="Tu Nombre" required>
+                    <input type="email" name="email" placeholder="Tu Email" required>
+                    <textarea name="mensaje" placeholder="Tu Mensaje" required></textarea>
                     <button type="submit">Enviar Mensaje</button>
                 </form>
             </div>
