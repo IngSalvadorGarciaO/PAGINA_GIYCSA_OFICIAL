@@ -274,3 +274,197 @@ body {
     }
 
 }
+/* =================================================================== */
+/* NUEVOS ESTILOS A PARTIR DE LAS MODIFICACIONES */
+/* =================================================================== */
+
+/* ------------------------------------------------------------------- */
+/* SECCIÓN INICIO (VIDEO) */
+/* ------------------------------------------------------------------- */
+#inicio {
+    overflow: hidden; /* Asegura que el video no se desborde */
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Coloca el video detrás del contenido */
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(28, 28, 30, 0.6); /* Capa oscura para legibilidad del texto */
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que el video cubra todo el espacio */
+}
+
+/* ------------------------------------------------------------------- */
+/* SECCIÓN HISTORIA (MOSAICO) */
+/* ------------------------------------------------------------------- */
+.photo-mosaic {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-auto-rows: 150px;
+    gap: 10px;
+    margin-top: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mosaic-item {
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.mosaic-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.mosaic-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Tamaños diferentes para un efecto de mosaico más dinámico */
+.mosaic-item:nth-child(3n+1) {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+.mosaic-item:nth-child(4n+2) {
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+
+/* ------------------------------------------------------------------- */
+/* SECCIÓN PROYECTOS (GALERÍA 4 COLUMNAS) */
+/* ------------------------------------------------------------------- */
+.gallery-proyectos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.project-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.project-card figcaption {
+    padding: 20px;
+}
+
+.project-card h3 {
+    margin-bottom: 5px;
+    color: var(--color-light);
+}
+
+.project-card p {
+    font-size: 0.9em;
+    opacity: 0.7;
+    margin: 0;
+}
+
+
+/* ------------------------------------------------------------------- */
+/* SECCIÓN MAQUINARIA (TARJETAS) */
+/* ------------------------------------------------------------------- */
+.machinery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.machinery-card {
+    background-color: #2c2c2e; /* Un poco más claro que el fondo */
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.machinery-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.machinery-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.machinery-title h3 {
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.machinery-title input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.machinery-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.info-polaroid {
+    background: var(--color-light);
+    color: var(--color-dark);
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.info-polaroid strong {
+    display: block;
+    font-size: 0.9em;
+    opacity: 0.7;
+}
+
+/* ------------------------------------------------------------------- */
+/* MEDIA QUERIES (AJUSTES ADICIONALES) */
+/* ------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .gallery-proyectos {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+    }
+}
