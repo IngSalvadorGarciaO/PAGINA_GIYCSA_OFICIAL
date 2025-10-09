@@ -1,45 +1,41 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Selecciona todas las secciones de pantalla completa, excepto la primera (inicio)
+    // -------------------------------------------------------------------
+    // 1. ANIMACIÓN DE SECCIONES (Intersection Observer)
+    // -------------------------------------------------------------------
+    // Se incluye #identidad
     const sections = document.querySelectorAll('.full-screen:not(#inicio)');
-    // La sección que siempre está visible al cargar
-    const initialSection = document.getElementById('inicio');
-    // La primera sección que debe aparecer al hacer scroll (justo después del inicio)
-    const firstSectionToObserve = sections[0]; 
     
-    // Objeto de opciones para el Intersection Observer
     const observerOptions = {
-        root: null, // El viewport es el elemento raíz
+        root: null, 
         rootMargin: '0px',
-        threshold: 0.2 // Cuando el 20% de la sección es visible
+        threshold: 0.2
     };
 
-    /**
-     * Callback que se ejecuta cuando la visibilidad de un elemento cambia
-     */
     const sectionObserverCallback = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Si la sección es visible (al hacer scroll hacia abajo o hacia arriba)
                 entry.target.classList.remove('hidden');
                 entry.target.classList.add('active');
             } else {
-                 // Si la sección ya no está en el viewport
                 entry.target.classList.add('hidden');
                 entry.target.classList.remove('active');
             }
         });
     };
 
-    // Crea el observador
     const observer = new IntersectionObserver(sectionObserverCallback, observerOptions);
 
-    // Observa todas las secciones (excepto inicio) para activar la animación de entrada
     sections.forEach(section => {
         observer.observe(section);
     });
     
-    // Configuración para el efecto de navegación suave
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // -------------------------------------------------------------------
+    // 2. NAVEGACIÓN SUAVE (Smooth Scroll)
+    // -------------------------------------------------------------------
+    const navMenu = document.querySelector('.navbar nav'); 
+    const navLinks = document.querySelectorAll('.navbar nav a'); 
+
+    navLinks.forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             
@@ -47,23 +43,64 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetElement = document.querySelector(targetId);
 
             if (targetElement) {
-                // Lógica de scroll suave
                 window.scrollTo({
                     top: targetElement.offsetTop,
                     behavior: 'smooth'
-});
+                });
                 
-                // Asegura que la sección de destino se muestre si el scroll no lo hace inmediatamente
-                // (útil para el menú de navegación)
+                // Cierra el menú en móvil después de hacer clic
+                if (window.innerWidth <= 768) {
+                    navMenu.classList.remove('active'); 
+                }
+
+                // Asegura la visibilidad del destino para el scroll
                 if (targetElement.classList.contains('hidden')) {
                      targetElement.classList.remove('hidden');
                      targetElement.classList.add('active');
                 }
             }
-
         });
-
     });
 
+    // -------------------------------------------------------------------
+    // 3. MENÚ HAMBURGUESA (Mobile Toggle)
+    // -------------------------------------------------------------------
+    const menuToggle = document.querySelector('.menu-toggle');
+    
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+
+    // -------------------------------------------------------------------
+    // 4. LÓGICA DE COTIZACIÓN DE MAQUINARIA
+    // -------------------------------------------------------------------
+    const contactForm = document.querySelector('.contact-form');
+    const machineryCheckboxes = document.querySelectorAll('.machinery-card input[type="checkbox"]');
+    const hiddenInput = document.getElementById('maquinaria_solicitada');
+
+    // Función para actualizar el campo oculto antes de enviar
+    const updateMachineryList = () => {
+        const selectedMachines = [];
+        machineryCheckboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                selectedMachines.push(checkbox.value);
+            }
+        });
+        
+        if (selectedMachines.length > 0) {
+            // Se actualiza el campo oculto con la lista de maquinaria seleccionada
+            hiddenInput.value = "Maquinaria solicitada: " + selectedMachines.join(', ');
+        } else {
+            hiddenInput.value = "No se seleccionó maquinaria.";
+        }
+    };
+    
+    // Escucha el evento de envío del formulario para actualizar la lista de maquinaria
+    contactForm.addEventListener('submit', updateMachineryList);
+
+    // Escucha el cambio en los checkboxes (opcional pero buena práctica)
+    machineryCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', updateMachineryList);
+    });
 
 });
