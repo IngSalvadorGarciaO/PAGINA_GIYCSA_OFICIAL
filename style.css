@@ -37,7 +37,7 @@ body {
 
 
 /* ------------------------------------------------------------------- */
-/* Barra de Navegación */ Movil
+/* Barra de Navegación */
 /* ------------------------------------------------------------------- */
 .navbar {
     position: fixed;
@@ -432,6 +432,8 @@ body {
     background-color: rgba(0, 122, 255, 0.1);
 }
 
+
+
 /* ------------------------------------------------------------------- */
 /* PIE DE PÁGINA */
 /* ------------------------------------------------------------------- */
@@ -581,4 +583,45 @@ body {
         grid-template-columns: 1fr; 
     }
 
+}
+
+/* ------------------------------------------------------------------- */
+/* MEDIA QUERIES (AJUSTES ADICIONALES) */
+/* ------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .gallery-proyectos {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+    }
+}
+/* ------------------------------------------------------------------- */
+/* Estilos para el Mapa de Contacto */
+/* ------------------------------------------------------------------- */
+
+/* Contenedor del mapa para darle margen superior y limitar el ancho */
+.map-container {
+    margin-top: 50px; /* Separación del formulario */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 12px;
+    overflow: hidden; /* Oculta los bordes del iframe */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5); /* Sombra para destacarlo */
+}
+
+.map-container iframe {
+    /* Asegura que el iframe ocupe todo el contenedor */
+    width: 100%;
+    /* La altura se controla por el atributo 'height' del iframe en el HTML */
+    display: block;
+}
+
+/* Ajuste Responsive para que el mapa se vea mejor en móvil */
+@media (max-width: 768px) {
+    .map-container {
+        margin-top: 30px;
+        /* Puedes ajustar la altura del iframe si quieres un 'minimapa' más pequeño en móvil */
+    }
+    .map-container iframe {
+        height: 300px; /* Una altura más compacta para dispositivos pequeños */
+    }
 }
